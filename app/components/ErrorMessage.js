@@ -2,8 +2,8 @@ import { StyleSheet } from 'react-native';
 import AppText from './AppText';
 import colours from '../config/colours';
 
-export default function ErrorMessage({error}) {
-  if (!error) {
+export default function ErrorMessage({error, visible}) {
+  if (!visible || !error) {
     return null;
   }
 

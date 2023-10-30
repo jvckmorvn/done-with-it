@@ -2,9 +2,9 @@ import { Image, StyleSheet } from 'react-native';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Screen from '../components/Screen';
-import AppTextInput from '../components/AppTextInput';
 import AppButton from '../components/AppButton';
-import ErrorMessage from '../components/ErrorMessage';
+import AppFormField from '../components/AppFormField';
+import SubmitButton from '../components/SubmitButton';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
@@ -20,32 +20,27 @@ export default function LoginScreen() {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        {({handleChange, handleSubmit, errors}) => (
+        {() => (
           <>
-          <AppTextInput
-            autoCapitalize='none'
-            autoCorrect={false}
-            icon='email'
-            keyboardType='email-address'
-            onChangeText={handleChange('email')}
-            placeholder='Email address'
-            textContentType='emailAddress'
-          />
-          <ErrorMessage error={errors.email}/>
-          <AppTextInput
-            autoCapitalize='none'
-            autoCorrect={false}
-            icon='key'
-            onChangeText={handleChange('password')}
-            placeholder='Password'
-            secureTextEntry
-            textContentType='password'
-          />
-          <ErrorMessage error={errors.email}/>
-          <AppButton 
-            title='Login'
-            onPress={handleSubmit}
-          />
+            <AppFormField
+              autoCapitalize='none'
+              autoCorrect={false}
+              icon='email'
+              keyboardType='email-address'
+              name='email'
+              placeholder='Email address'
+              textContentType='emailAddress'
+            />
+            <AppFormField
+              autoCapitalize='none'
+              autoCorrect={false}
+              icon='key'
+              name='password'
+              placeholder='Password'
+              secureTextEntry
+              textContentType='password'
+            />
+            <SubmitButton title='Login'/>
           </>
         )}
       </Formik>
@@ -62,6 +57,6 @@ const styles = StyleSheet.create({
     height: 80,
     alignSelf: 'center',
     marginTop: 50,
-    marginBottom: 20
+    marginBottom: 40
   }
 });
