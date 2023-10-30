@@ -1,7 +1,7 @@
-import { View, Image, StyleSheet } from "react-native";
-import AppText from "../components/AppText";
-import colours from "../config/colours";
-import ListItem from "../components/ListItem";
+import { View, Image, StyleSheet } from 'react-native';
+import AppText from '../components/AppText';
+import colours from '../config/colours';
+import ListItem from '../components/ListItem';
 
 export default function ListingDetailsScreen() {
   return (

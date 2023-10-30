@@ -1,4 +1,4 @@
-import { SafeAreaView, View } from "react-native";
+import { SafeAreaView, View } from 'react-native';
 
 export default function Screen({children, style}) {
   return (

@@ -1,9 +1,9 @@
-import { FlatList, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import defaultStyles from "../config/styles";
-import AppText from "./AppText";
-import { useState } from "react";
-import Screen from "./Screen";
+import { FlatList, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import defaultStyles from '../config/styles';
+import AppText from './AppText';
+import { useState } from 'react';
+import Screen from './Screen';
 
 export default function AppPicker({icon, items, onSelectItem, placeholder, selectedItem}) {
   const [modalVisible, setModalVisible] = useState(false);

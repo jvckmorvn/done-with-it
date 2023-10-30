@@ -1,5 +1,5 @@
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { View } from "react-native";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { View } from 'react-native';
 
 export default function Icon({name, size=40, backgroundColour='black', iconColour='white'}) {
   return (
