@@ -1,7 +1,10 @@
-import ListingDetailsScreen from './screens/ListingDetailsScreen';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import AccountScreen from './screens/AccountScreen';
 
 export default function App() {
   return (
-    <ListingDetailsScreen/>
+    <GestureHandlerRootView>
+      <AccountScreen/>
+    </GestureHandlerRootView>
   );
 }

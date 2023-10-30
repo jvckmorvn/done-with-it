@@ -5,12 +5,12 @@ import colours from '../config/colours';
 export default function ViewImageScreen() {
   return (
     <View style={styles.container}>
-    <View style={styles.closeIcon}>
-      <MaterialCommunityIcons name='close' color='white' size={30}/>
-    </View>
-    <View style={styles.deleteIcon}>
-      <MaterialCommunityIcons name='trash-can-outline' color='white' size={34}/>
-    </View>
+      <View style={styles.closeIcon}>
+        <MaterialCommunityIcons name='close' color='white' size={30}/>
+      </View>
+      <View style={styles.deleteIcon}>
+        <MaterialCommunityIcons name='trash-can-outline' color='white' size={34}/>
+      </View>
       <Image resizeMode='contain' style={styles.image} source={require('../assets/chair.jpg')}/>
     </View>
   );
