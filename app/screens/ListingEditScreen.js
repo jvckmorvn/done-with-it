@@ -7,6 +7,7 @@ import {
   SubmitButton
 } from '../components/forms';
 import Screen from '../components/Screen';
+import CategoryPickerItem from '../components/CategoryPickerItem';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
@@ -34,14 +35,22 @@ export default function ListingEditScreen() {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        <FormField maxLength={255} name='title' placeholder='Title' />
+        <FormField maxLength={255} name='title' placeholder='Title'/>
         <FormField
           keyboardType='numeric'
           maxLength={8}
           name='price'
           placeholder='Price'
+          width={120}
         />
-        <Picker items={categories} name='category' placeholder='Category' />
+        <Picker
+          items={categories}
+          name='category'
+          numberOfColumns={3}
+          PickerItemComponent={CategoryPickerItem}
+          placeholder='Category'
+          width={'50%'}
+        />
         <FormField
           maxLength={255}
           multiline
@@ -49,7 +58,7 @@ export default function ListingEditScreen() {
           numberOfLines={3}
           placeholder='Description'
         />
-        <SubmitButton title='Post' />
+        <SubmitButton title='Post'/>
       </Form>
     </Screen>
   );

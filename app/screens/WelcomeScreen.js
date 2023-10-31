@@ -5,7 +5,7 @@ export default function WelcomeScreen() {
   return (
     <ImageBackground blurRadius={10} style={styles.background} source={require('../assets/background.jpg')}>
       <View style={styles.logoContainer}>
-        <Image style={styles.logo} source={require('../assets/log-red.png')}/>
+        <Image style={styles.logo} source={require('../assets/logo-red.png')}/>
         <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
       <View style={styles.buttonsContainer}>

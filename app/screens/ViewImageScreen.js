@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
   },
   container: {
     backgroundColor: colours.black,
-    flex: 1
   },
   deleteIcon: {
     position: 'absolute',
