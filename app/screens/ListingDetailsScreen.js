@@ -19,7 +19,7 @@ export default function ListingDetailsScreen({route}) {
         <AppText style={styles.title} numberOfLines={1}>{listing.title}</AppText>
         <AppText style={styles.price} numberOfLines={1}>£{listing.price}</AppText>
         <View style={styles.userContainer}>
-          <ListItem image={require('../assets/mosh.jpg')} title='Jack Moran' subtitle='5 listings'/>
+          <ListItem image={require('../assets/userImages/mosh.jpg')} title='Jack Moran' subtitle='5 listings'/>
         </View>
       </View>
     </View>

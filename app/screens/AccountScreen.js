@@ -4,6 +4,8 @@ import ListItem from '../components/ListItem';
 import ListItemSeparator from '../components/ListItemSeparator';
 import Screen from '../components/Screen';
 import colours from '../config/colours';
+import { useContext } from 'react';
+import AuthContext from '../auth/context';
 
 const menuItems = [
   {
@@ -24,13 +26,15 @@ const menuItems = [
 ];
 
 export default function AccountScreen({navigation}) {
+  const { currentUser } = useContext(AuthContext);
+
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
         <ListItem
-          title='My title'
-          subtitle='My subtitle'
-          IconComponent={<Icon name='email'/>}
+          title={currentUser.name}
+          subtitle={currentUser.email}
+          image={currentUser.imageUrl}
         />
       </View>
       <View style={styles.container}>
