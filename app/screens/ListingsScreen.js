@@ -1,44 +1,50 @@
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
+import { useEffect, useState } from 'react';
 import Card from '../components/Card';
-import Screen from '../components/Screen';
 import colours from '../config/colours';
 import routes from '../navigation/routes';
-import getListings from '../api/listings';
-import { useEffect, useState } from 'react';
+import api from '../api/listings';
+import LoadingWheel from '../components/LoadingWheel';
+import useApi from '../hooks/useApi';
 
 export default function ListingsScreen({navigation}) {
-  const [listings, setListings] = useState([]);
+  const { data: listings, loading, request: loadListings } = useApi(api.getListings);
 
   useEffect(() => {
-    loadListings();
+    const listings = loadListings();
   }, [])
-  
-  async function loadListings() {
-    const data = getListings();
-    setListings(data);
-  }
 
   return (
-    <Screen style={styles.screen}>
-      <FlatList
-        data={Object.values(listings)}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <Card
-            title={item.title}
-            subtitle={`£${item.price.toString()}`}
-            imageUrl={item.images[0].fileName}
-            onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
+    <>
+      <LoadingWheel visible={loading}/>
+      {!loading && (
+        <View style={styles.listContainer}>
+          <FlatList
+            data={listings}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <Card
+                title={item.title}
+                subtitle={`£${item.price.toString()}`}
+                imageUrl={item.images[0].fileName}
+                onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
+              />
+            )}
           />
-        )}
-      />
-    </Screen>
+        </View>
+      )}
+    </>
   ); 
 }
 
 const styles = StyleSheet.create({
-  screen: {
-    padding: 20,
-    backgroundColor: colours.light
+  listContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colours.light,
+    padding: 12,
+    paddingBottom: 0,
+    marginTop: 24
   }
 });
