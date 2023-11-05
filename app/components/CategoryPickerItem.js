@@ -3,8 +3,6 @@ import Icon from "./Icon";
 import AppText from "./AppText";
 
 export default function CategoryPickerItem({item, onPress}) {
-  console.log(item || 'Item is undefined');
-
   return (
     <View style={styles.container}>
       <Pressable onPress={() => onPress(item.id)}>

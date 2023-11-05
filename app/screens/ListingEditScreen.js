@@ -89,5 +89,6 @@ export default function ListingEditScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+    marginTop: 10
   },
 });
