@@ -8,7 +8,13 @@ export default function ListingDetailsScreen({route}) {
 
   return (
     <View>
-      <Image style={styles.image} source={listing.image}/>
+      {listing.images.map(image => 
+        <Image
+          key={listing.images.indexOf(image)}
+          style={styles.image}
+          source={image.fileName}
+        />
+      )}
       <View style={styles.detailsContainer}>
         <AppText style={styles.title} numberOfLines={1}>{listing.title}</AppText>
         <AppText style={styles.price} numberOfLines={1}>£{listing.price}</AppText>
