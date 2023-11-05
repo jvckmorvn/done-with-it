@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
 import * as Yup from 'yup';
 import {
   AppForm as Form,
@@ -44,45 +44,50 @@ export default function ListingEditScreen() {
   }
 
   return (
-    <Screen style={styles.container}>
-      <Form
-        initialValues={{
-          title: '',
-          price: '',
-          description: '',
-          category: null,
-          images: []
-        }}
-        onSubmit={handleSubmit}
-        validationSchema={validationSchema}
-      >
-        <ImagePicker name='images'/>
-        <FormField maxLength={255} name='title' placeholder='Title'/>
-        <FormField
-          keyboardType='numeric'
-          maxLength={8}
-          name='price'
-          placeholder='Price'
-          width={120}
-        />
-        <Picker
-          items={categories}
-          name='category'
-          numberOfColumns={3}
-          PickerItemComponent={CategoryPickerItem}
-          placeholder='Category'
-          width={'50%'}
-        />
-        <FormField
-          maxLength={255}
-          multiline
-          name='description'
-          numberOfLines={3}
-          placeholder='Description'
-        />
-        <SubmitButton title='Post'/>
-      </Form>
-    </Screen>
+    <KeyboardAvoidingView
+      behavior='position'
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 100}
+    >
+      <Screen style={styles.container}>
+        <Form
+          initialValues={{
+            title: '',
+            price: '',
+            description: '',
+            category: null,
+            images: []
+          }}
+          onSubmit={handleSubmit}
+          validationSchema={validationSchema}
+        >
+          <ImagePicker name='images'/>
+          <FormField maxLength={255} name='title' placeholder='Title'/>
+          <FormField
+            keyboardType='numeric'
+            maxLength={8}
+            name='price'
+            placeholder='Price'
+            width={120}
+          />
+          <Picker
+            items={categories}
+            name='category'
+            numberOfColumns={3}
+            PickerItemComponent={CategoryPickerItem}
+            placeholder='Category'
+            width={'50%'}
+          />
+          <FormField
+            maxLength={255}
+            multiline
+            name='description'
+            numberOfLines={3}
+            placeholder='Description'
+          />
+          <SubmitButton title='Post'/>
+        </Form>
+      </Screen>
+    </KeyboardAvoidingView>
   );
 }
 

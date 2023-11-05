@@ -1,4 +1,4 @@
-import { Image, StyleSheet } from 'react-native';
+import { Image, KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
 import { useContext, useState } from 'react';
 import * as Yup from 'yup';
 import Screen from '../components/Screen';
@@ -27,34 +27,39 @@ export default function LoginScreen() {
   }
 
   return (
-    <Screen style={styles.container}>
-      <Image style={styles.logo} source={require('../assets/logo-red.png')}/>
-      <AppForm
-       initialValues={{email: '', password: ''}}
-        onSubmit={handleSubmit}
-        validationSchema={validationSchema}
-      >
-        <AppFormField
-          autoCapitalize='none'
-          autoCorrect={false}
-          icon='email'
-          keyboardType='email-address'
-          name='email'
-          placeholder='Email address'
-          textContentType='emailAddress'
-        />
-        <AppFormField
-          autoCapitalize='none'
-          autoCorrect={false}
-          icon='key'
-          name='password'
-          placeholder='Password'
-          secureTextEntry
-          textContentType='password'
-        />
-        <SubmitButton title='Login'/>
-      </AppForm>
-    </Screen>
+    <KeyboardAvoidingView
+      behavior='position'
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 100}
+    >
+      <Screen style={styles.container}>
+        <Image style={styles.logo} source={require('../assets/logo-red.png')}/>
+        <AppForm
+        initialValues={{email: '', password: ''}}
+          onSubmit={handleSubmit}
+          validationSchema={validationSchema}
+        >
+          <AppFormField
+            autoCapitalize='none'
+            autoCorrect={false}
+            icon='email'
+            keyboardType='email-address'
+            name='email'
+            placeholder='Email address'
+            textContentType='emailAddress'
+          />
+          <AppFormField
+            autoCapitalize='none'
+            autoCorrect={false}
+            icon='key'
+            name='password'
+            placeholder='Password'
+            secureTextEntry
+            textContentType='password'
+          />
+          <SubmitButton title='Login'/>
+        </AppForm>
+      </Screen>
+    </KeyboardAvoidingView>
   ); 
 }
 
@@ -66,7 +71,7 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     alignSelf: 'center',
-    marginTop: 50,
+    marginTop: 40,
     marginBottom: 40
   }
 });
