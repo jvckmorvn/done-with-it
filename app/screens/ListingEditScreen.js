@@ -10,6 +10,7 @@ import {
 import Screen from '../components/Screen';
 import CategoryPickerItem from '../components/CategoryPickerItem';
 import useLocation from '../hooks/useLocation';
+import listingsApi from '../api/listings';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
@@ -20,13 +21,25 @@ const validationSchema = Yup.object().shape({
 });
 
 const categories = [
-  { label: 'Furniture', value: 1 },
-  { label: 'Clothing', value: 2 },
-  { label: 'Camera', value: 3 },
+  { label: 'Furniture', id: 1 },
+  { label: 'Clothing', id: 2 },
+  { label: 'Camera', id: 3 },
 ];
 
 export default function ListingEditScreen() {
   const location = useLocation();
+
+  function handleSubmit(values) {
+    const newListing = {
+      title: values.title,
+      price: values.price,
+      description: values.description,
+      category: values.category,
+      images: values.images,
+    };
+    const result = listingsApi.addListing({ ...newListing, location });
+    console.log(result);
+  }
 
   return (
     <Screen style={styles.container}>
@@ -38,7 +51,7 @@ export default function ListingEditScreen() {
           category: null,
           images: []
         }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
         <ImagePicker name='images'/>

@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 import Card from '../components/Card';
 import colours from '../config/colours';
 import routes from '../navigation/routes';
-import api from '../api/listings';
+import listingsApi from '../api/listings';
 import LoadingWheel from '../components/LoadingWheel';
 import useApi from '../hooks/useApi';
 
 export default function ListingsScreen({navigation}) {
-  const { data: listings, loading, request: loadListings } = useApi(api.getListings);
+  const { data: listings, loading, request: loadListings } = useApi(listingsApi.getListings);
 
   useEffect(() => {
     const listings = loadListings();

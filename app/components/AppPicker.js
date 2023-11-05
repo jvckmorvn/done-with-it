@@ -34,7 +34,7 @@ export default function AppPicker({icon, items, onSelectItem, numberOfColumns = 
           <Button title='Close' onPress={() => setModalVisible(false)}/>
           <FlatList
             data={items}
-            keyExtractor={item => item.value.toString()}
+            keyExtractor={item => item.id.toString()}
             numColumns={numberOfColumns}
             renderItem={({item}) => 
               <PickerItemComponent
