@@ -23,7 +23,6 @@ export default function SignupScreen() {
         <Image style={styles.logo} source={require('../assets/logo-red.png')}/>
         <Form
           initialValues={{ name: '', email: '', password: '' }}
-          onSubmit={(values) => console.log(values)}
           validationSchema={validationSchema}
         >
           <FormField

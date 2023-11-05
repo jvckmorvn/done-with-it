@@ -2,7 +2,7 @@ const listings = [
   {
     id: 201,
     title: 'Red jacket',
-    images: [require('../assets/listingImages/couch.jpg')],
+    images: [require('../assets/listingImages/jacket.jpg')],
     price: 100,
     categoryId: 5,
     userId: 1,
@@ -13,7 +13,7 @@ const listings = [
   },
   {
     id: 3,
-    title: 'Gray couch in a great condition',
+    title: 'Brown couch (LIKE NEW)',
     images: [require('../assets/listingImages/couch.jpg')],
     categoryId: 1,
     price: 1200,

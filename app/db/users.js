@@ -1,15 +1,15 @@
 const users = [
   {
     id: 1,
-    name: 'Mosh',
-    email: 'mosh@domain.com',
+    name: 'Jack',
+    email: 'jack@domain.com',
     password: '12345',
-    image: require('../assets/userImages/mosh.jpg')
+    image: require('../assets/userImages/jack.jpg')
   },
   {
     id: 2,
-    name: 'John',
-    email: 'john@domain.com',
+    name: 'Mosh',
+    email: 'mosh@domain.com',
     password: '12345',
     image: require('../assets/userImages/mosh.jpg')
   }

@@ -1,3 +1,4 @@
+import { Alert } from "react-native";
 import users from "../db/users";
 
 function login({email, password}) {
@@ -6,14 +7,12 @@ function login({email, password}) {
 
   if (user) {
     passwordIsValid = checkPassword({user, password});
-  } else {
-    console.log('Could not find user with that email.');
   }
 
   if (passwordIsValid) {
     return user;
   } else {
-    return null;
+    Alert.alert('Error', 'Invalid login details, please try again.', ['Okay']);
   }
 }
 

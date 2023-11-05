@@ -1,4 +1,4 @@
-import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
+import { Alert, KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
 import * as Yup from 'yup';
 import {
   AppForm as Form,
@@ -39,7 +39,7 @@ export default function ListingEditScreen() {
       resetForm();
     }
     else {
-      console.log('Error submitting form');
+      Alert.alert('Error', 'Something went wrong, please try again.', ['Okay'])
     }
   }
 
