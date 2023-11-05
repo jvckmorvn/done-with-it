@@ -7,7 +7,7 @@ export default function ListingDetailsScreen({route}) {
   const listing = route.params;
 
   return (
-    <View>
+    <View style={styles.container}>
       {listing.images.map(image => 
         <Image
           key={listing.images.indexOf(image)}
@@ -27,6 +27,9 @@ export default function ListingDetailsScreen({route}) {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    marginTop: 24
+  },
   detailsContainer: {
     padding: 20
   },

@@ -25,16 +25,22 @@ export default function ListingEditScreen() {
   const categories = categoriesApi.getCategories();
   const location = useLocation();
 
-  function handleSubmit(values) {
+  function handleSubmit(listing, { resetForm }) {
     const newListing = {
-      title: values.title,
-      price: values.price,
-      description: values.description,
-      category: values.category,
-      images: values.images,
+      title: listing.title,
+      price: listing.price,
+      description: listing.description,
+      category: listing.category,
+      images: listing.images,
     };
+    
     const result = listingsApi.addListing({ ...newListing, location });
-    console.log(result);
+    if (result?.length > 0) {
+      resetForm();
+    }
+    else {
+      console.log('Error submitting form');
+    }
   }
 
   return (

@@ -3,10 +3,12 @@ import Icon from "./Icon";
 import AppText from "./AppText";
 
 export default function CategoryPickerItem({item, onPress}) {
+  console.log(item || 'Item is undefined');
+
   return (
     <View style={styles.container}>
       <Pressable onPress={() => onPress(item.id)}>
-        <Icon backgroundColor={item.backgroundColor} name={item.icon} size={80}/>
+        <Icon backgroundColour={item.backgroundColor} name={item.icon} size={80}/>
         <AppText style={styles.label}>{item.label}</AppText>
       </Pressable>
     </View>
