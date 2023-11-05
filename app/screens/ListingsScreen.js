@@ -26,7 +26,7 @@ export default function ListingsScreen({navigation}) {
               <Card
                 title={item.title}
                 subtitle={`£${item.price.toString()}`}
-                imageUrl={item.images[0].fileName}
+                image={item.images[0]}
                 onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
               />
             )}

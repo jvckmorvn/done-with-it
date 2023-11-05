@@ -9,14 +9,6 @@ import AuthContext from './auth/context';
 export default function App() {
   const [currentUser, setCurrentUser] = useState();
 
-  // setCurrentUser({
-  //   id: 1,
-  //   name: "Mosh",
-  //   email: "mosh@domain.com",
-  //   password: "12345",
-  //   imageUrl: '../assets/userImages/mosh.jpg'
-  // });
-
   return (
     // <GestureHandlerRootView>
     <AuthContext.Provider value={{currentUser, setCurrentUser}}>

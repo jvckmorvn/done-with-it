@@ -25,8 +25,8 @@ const menuItems = [
   }
 ];
 
-export default function AccountScreen({navigation}) {
-  const { currentUser } = useContext(AuthContext);
+export default function AccountScreen() {
+  const { currentUser, setCurrentUser } = useContext(AuthContext);
 
   return (
     <Screen style={styles.screen}>
@@ -34,7 +34,7 @@ export default function AccountScreen({navigation}) {
         <ListItem
           title={currentUser.name}
           subtitle={currentUser.email}
-          image={currentUser.imageUrl}
+          image={currentUser.image}
         />
       </View>
       <View style={styles.container}>
@@ -64,7 +64,7 @@ export default function AccountScreen({navigation}) {
             backgroundColour='#ffe66d'
           />
         }
-        onPress={() => navigation.navigate(item.targetScreen)}
+        onPress={() => setCurrentUser(null)}
       />
     </Screen>
   );  

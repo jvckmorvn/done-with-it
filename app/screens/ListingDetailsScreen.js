@@ -12,7 +12,7 @@ export default function ListingDetailsScreen({route}) {
         <Image
           key={listing.images.indexOf(image)}
           style={styles.image}
-          source={image.fileName}
+          source={image}
         />
       )}
       <View style={styles.detailsContainer}>
