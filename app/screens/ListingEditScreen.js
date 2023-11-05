@@ -11,6 +11,7 @@ import Screen from '../components/Screen';
 import CategoryPickerItem from '../components/CategoryPickerItem';
 import useLocation from '../hooks/useLocation';
 import listingsApi from '../api/listings';
+import categoriesApi from '../api/categories';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
@@ -20,13 +21,8 @@ const validationSchema = Yup.object().shape({
   images: Yup.array().min(1, 'Please select at least 1 image.')
 });
 
-const categories = [
-  { label: 'Furniture', id: 1 },
-  { label: 'Clothing', id: 2 },
-  { label: 'Camera', id: 3 },
-];
-
 export default function ListingEditScreen() {
+  const categories = categoriesApi.getCategories();
   const location = useLocation();
 
   function handleSubmit(values) {
