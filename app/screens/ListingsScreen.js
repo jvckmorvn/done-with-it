@@ -21,7 +21,7 @@ export default function ListingsScreen({navigation}) {
   return (
     <Screen style={styles.screen}>
       <FlatList
-        data={Object.values(listings)} // Convert the object to an array
+        data={Object.values(listings)}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <Card

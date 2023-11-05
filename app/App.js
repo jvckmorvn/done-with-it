@@ -13,7 +13,7 @@ export default function App() {
     // <GestureHandlerRootView>
       <NavigationContainer theme={navigationTheme}>
         {/* <AuthNavigator/> */}
-        <ListingsScreen/>
+        <AppNavigator/>
         {/* <Button title='Click me!' onPress={getListings}/> */}
       </NavigationContainer>
     // </GestureHandlerRootView>
