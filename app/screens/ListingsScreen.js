@@ -3,36 +3,34 @@ import Card from '../components/Card';
 import Screen from '../components/Screen';
 import colours from '../config/colours';
 import routes from '../navigation/routes';
-
-const listings = [
-  {
-    id: 1,
-    title: 'Red jacket',
-    price: 100,
-    image: require('../assets/jacket.jpg')
-  },
-  {
-    id: 2,
-    title: 'Couch',
-    price: 1000,
-    image: require('../assets/couch.jpg')
-  },
-];
+import getListings from '../api/listings';
+import { useEffect, useState } from 'react';
 
 export default function ListingsScreen({navigation}) {
+  const [listings, setListings] = useState([]);
+
+  useEffect(() => {
+    loadListings();
+  }, [])
+  
+  async function loadListings() {
+    const data = getListings();
+    setListings(data);
+  }
+
   return (
     <Screen style={styles.screen}>
       <FlatList
-        data={listings}
-        keyExtractor={listing => listing.id.toString()}
-        renderItem={({item}) =>
+        data={Object.values(listings)} // Convert the object to an array
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
           <Card
             title={item.title}
-            subtitle={`£${item.price}`}
-            image={item.image}
+            subtitle={`£${item.price.toString()}`}
+            imageUrl={item.images[0].fileName}
             onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
           />
-        }
+        )}
       />
     </Screen>
   ); 
