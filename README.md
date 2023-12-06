@@ -1,5 +1,5 @@
 # done-with-it
-Second-hand goods marketplace built using React Native
+Second-hand goods mobile app built using React Native
 
 <img width="433" alt="welcome screen" src="https://github.com/jvckmorvn/done-with-it/assets/68481327/ba4e5752-ae0f-4334-ad3e-799448f77d08">
 <br>
